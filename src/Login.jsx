@@ -12,7 +12,7 @@ export default function Login() {
   const handelRequest = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/login', { email, password });
+      await axios.post('/login', { email, password });
       navigate('/home', { replace: true });
     } catch (error) {
       console.log(error);
