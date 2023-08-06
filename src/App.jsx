@@ -6,7 +6,7 @@ import Register from './Register';
 import Home from './Home';
 
 function App() {
-  axios.defaults.baseURL = 'http://localhost:3000';
+  axios.defaults.baseURL = 'https://ToDoList-api.onrender.com';
   axios.defaults.withCredentials = true;
   return (
     <>
