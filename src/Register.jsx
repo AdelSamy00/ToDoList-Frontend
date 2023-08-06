@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { useNavigate, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
   const [username, setUsername] = useState('');
@@ -25,7 +25,7 @@ export default function Register() {
   const handelRequst = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post('http://localhost:3000/register', {
+      await axios.post('http://localhost:3000/register', {
         username,
         password,
         email,

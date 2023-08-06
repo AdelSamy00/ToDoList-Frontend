@@ -1,6 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
-import Header from './Header';
 import Login from './Login';
 import Register from './Register';
 import Home from './Home';

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import 'flowbite';
 const Header = (props) => {
@@ -6,7 +6,7 @@ const Header = (props) => {
   const logout = async () => {
     axios
       .post('/logout')
-      .then((res) => {
+      .then(() => {
         navigate('/', { replace: true });
       })
       .catch((err) => {

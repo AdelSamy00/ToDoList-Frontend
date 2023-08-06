@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from './Header';
 
@@ -27,7 +27,7 @@ export default function Home() {
   const addTask = async (e, newTask, deadline, userId) => {
     axios
       .post('/addTask', { newTask, deadline, userId })
-      .then((res) => {
+      .then(() => {
         setNewTask('');
         setDeadline(getTime());
         getUserData(userId);
@@ -37,7 +37,7 @@ export default function Home() {
   const completeTask = async (noteId) => {
     axios
       .put('/completeTask', { noteId })
-      .then((res) => {
+      .then(() => {
         getUserData(userId);
       })
       .catch((err) => console.log(err));
@@ -45,7 +45,7 @@ export default function Home() {
   const deleteTask = async (noteId) => {
     axios
       .delete(`/deleteTask/${userId}&${noteId}`)
-      .then((res) => {
+      .then(() => {
         getUserData(userId);
       })
       .catch((e) => console.log(e));
