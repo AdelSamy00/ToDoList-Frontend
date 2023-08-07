@@ -1,9 +1,11 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from './Header';
+import AuthContext from './context/AuthProvider';
 
 export default function Home() {
+  const { auth } = useContext(AuthContext);
   const navigate = useNavigate();
   const [userId, setUserId] = useState('');
   const [user, setUser] = useState({});
@@ -51,6 +53,7 @@ export default function Home() {
       .catch((e) => console.log(e));
   };
   useEffect(() => {
+    console.log(auth);
     axios
       .get('/profile')
       .then((res) => {

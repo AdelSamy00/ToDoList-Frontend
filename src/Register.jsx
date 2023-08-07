@@ -25,7 +25,7 @@ export default function Register() {
   const handelRequst = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/register', {
+      await axios.post('/register', {
         username,
         password,
         email,

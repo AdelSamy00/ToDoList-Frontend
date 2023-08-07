@@ -5,7 +5,8 @@ import Register from './Register';
 import Home from './Home';
 
 function App() {
-  axios.defaults.baseURL = 'https://todolist-api-4n7m.onrender.com';
+  axios.defaults.baseURL =
+    'https://todolist-api-4n7m.onrender.com/getUser/64c9043bc63fffca5798ed3c';
   axios.defaults.withCredentials = true;
   return (
     <>

@@ -1,10 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import AuthContext from './context/AuthProvider';
 import './Login.css';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
+  const { setAuth } = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -12,8 +14,15 @@ export default function Login() {
   const handelRequest = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/login', { email, password });
-      navigate('/home', { replace: true });
+      await axios.post('/login', { email, password }).then((res) => {
+        console.log(res);
+        setAuth({
+          id: res.data.id,
+          username: res.data.username,
+          token: res.data.token,
+        });
+        navigate('/home', { replace: true });
+      });
     } catch (error) {
       console.log(error);
     }
