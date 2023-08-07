@@ -64,7 +64,7 @@ export default function Home() {
         console.log(err);
         navigate('/');
       });
-  }, []);
+  }, [auth, navigate]);
   return (
     <div>
       <div className="mb-32">
