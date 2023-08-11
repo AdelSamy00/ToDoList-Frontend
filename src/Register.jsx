@@ -32,7 +32,7 @@ export default function Register() {
           email,
         })
         .then((res) => {
-          window.localStorage.setItem('token', res.data.token);
+          window.sessionStorage.setItem('token', res.data.token);
           navigate('/home', { replace: true });
         });
     } catch (error) {

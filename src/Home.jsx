@@ -54,7 +54,7 @@ export default function Home() {
   };
   useEffect(() => {
     console.log(auth);
-    if (!window.localStorage.getItem('token')) {
+    if (!window.sessionStorage.getItem('token')) {
       navigate('/');
     }
     axios
