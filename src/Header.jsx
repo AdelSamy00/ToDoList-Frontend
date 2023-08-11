@@ -7,6 +7,7 @@ const Header = (props) => {
     axios
       .post('/logout')
       .then(() => {
+        window.localStorage.clear();
         navigate('/', { replace: true });
       })
       .catch((err) => {

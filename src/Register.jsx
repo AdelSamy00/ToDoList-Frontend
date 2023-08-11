@@ -25,12 +25,16 @@ export default function Register() {
   const handelRequst = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/register', {
-        username,
-        password,
-        email,
-      });
-      navigate('/home', { replace: true });
+      await axios
+        .post('/register', {
+          username,
+          password,
+          email,
+        })
+        .then((res) => {
+          window.localStorage.setItem('token', res.data.token);
+          navigate('/home', { replace: true });
+        });
     } catch (error) {
       console.log(error);
     }

@@ -21,6 +21,7 @@ export default function Login() {
           username: res.data.username,
           token: res.data.token,
         });
+        window.localStorage.setItem('token', res.data.token);
         navigate('/home', { replace: true });
       });
     } catch (error) {

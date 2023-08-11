@@ -54,6 +54,9 @@ export default function Home() {
   };
   useEffect(() => {
     console.log(auth);
+    if (!window.localStorage.getItem('token')) {
+      navigate('/');
+    }
     axios
       .get('/profile')
       .then((res) => {
@@ -62,7 +65,6 @@ export default function Home() {
       })
       .catch((err) => {
         console.log(err);
-        navigate('/');
       });
   }, [auth, navigate]);
   return (
