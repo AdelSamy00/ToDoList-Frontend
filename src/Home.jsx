@@ -69,7 +69,7 @@ export default function Home() {
   }, [auth, navigate]);
   return (
     <div>
-      <div className="mb-32">
+      <div className="mb-48">
         <Header {...user} />
       </div>
       <div className="flex items-start justify-center w-full ">
